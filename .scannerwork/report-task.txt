@@ -1,0 +1,7 @@
+organization=antonioofdz
+projectKey=antonioofdz_sonarqube
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.5323
+dashboardUrl=https://sonarcloud.io/dashboard?id=antonioofdz_sonarqube
+ceTaskId=AXChi62aRbPSyW2ot7eB
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXChi62aRbPSyW2ot7eB
