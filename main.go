@@ -38,17 +38,25 @@ func main() {
     if len(parts) > 2 {
       log.Fatal(errors.New("too many arguments in donkeys and bags input"))
     }
+
     donkeysNumber, err := strconv.Atoi(parts[0])
     if err != nil {
       log.Fatal(errors.Stack(err))
+    }
+    if donkeysNumber > models.DONKEYS_BAGS_UP_LIMIT || donkeysNumber < models.DONKEYS_BAGS_DOWN_LIMIT {
+      log.Fatal(errors.New("donkeys number out of limit."))
     }
     donkeys := []models.Donkey{}
     for i:=0; i < donkeysNumber; i++ {
       donkeys = append(donkeys, models.Donkey{})
     }
+
     bagsNumber, err := strconv.Atoi(parts[1])
     if err != nil {
       log.Fatal(errors.Stack(err))
+    }
+    if bagsNumber > models.DONKEYS_BAGS_UP_LIMIT || bagsNumber < models.DONKEYS_BAGS_DOWN_LIMIT {
+      log.Fatal(errors.New("bags number out of limit."))
     }
 
     // Read weights
@@ -66,6 +74,10 @@ func main() {
       if err != nil {
         log.Fatal(errors.New(fmt.Sprintf("invalid bag weight %s", part)))
       }
+      if weight > models.BAG_WEIGHT_UP_LIMIT || weight < models.BAG_WEIGHT_DOWN_LIMIT {
+        log.Fatal(errors.New("bags number out of limit."))
+      }
+
       bags = append(bags, models.NewBag(weight))
     }
 
